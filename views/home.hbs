@@ -1,0 +1,60 @@
+<h3>Employee Details</h3>
+<p><a href="/addemp" class="add">Add Employee</a></p>
+<div id="container">
+<input id="searchbar" onkeyup="searchemp()" placeholder="search employee" type="text" name="search">
+</div>
+<div>
+    <a href="/export" class="download">Export to csv</a>
+</div>
+<table id="myTable">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Mobile</td>
+            <td>Location</td>
+            <td>Edit</td>
+            <td>Delete</td>
+
+        </tr>
+    </thead>
+    <tbody>
+{{#each rows}}
+    <tr>
+        <td>{{this.ID}}</td>
+        <td>{{this.Name}}</td>
+        <td>{{this.Email}}</td>
+        <td>{{this.Mobile}}</td>
+        <td>{{this.Location}}</td>
+        <td><a class="edit" href="/editemp/{{this.ID}}">Edit</a></td>
+        <td><a class="delete" href="/deleteemp/{{this.ID}}">Delete</a></td>
+    </tr>
+{{/each}}
+    </tbody>
+</table>
+
+<script>
+    function searchemp(){
+    let filter = document.getElementById('searchbar').value.toUpperCase();
+    let myTable = document.getElementById('myTable');
+    let tr = myTable.getElementsByTagName('tr');
+
+    for(var i=0; i<tr.length; i++){
+        let td = tr[i].getElementsByTagName('td')[0];
+
+        if(td){
+            let textvalue = td.txtContent || td.innerHTML;
+
+            if(textvalue.toUpperCase().indexof(filter) > -1){
+                tr[1].style.display = "";
+            }else{
+                tr[i].style.display = "none";
+            }
+
+
+        }
+    }
+
+}
+</script>

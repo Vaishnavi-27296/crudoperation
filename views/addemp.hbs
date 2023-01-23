@@ -1,0 +1,28 @@
+<h3>Add New Employee</h3>
+{{#if mesg}}
+<div class="alert">{{mesg}}</div>
+{{/if}}
+
+<form method="post" action="/addemp">
+<div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name">
+</div>
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" name="email">
+</div>
+<div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" name="mobile">
+</div>
+<div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" name="Location">
+</div>
+
+<div class="form-group">
+ <button type="submit">Submit</button>
+ <a href="/">Back</a>
+</div>
+</form>

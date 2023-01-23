@@ -1,0 +1,31 @@
+<h3>Edit Employee Details</h3>
+{{#if mesg}}
+<div class="alert">{{mesg}}</div>
+{{/if}}
+
+
+{{#each rows}}
+<form method="post" action="/editemp/{{this.ID}}" >
+<div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{this.Name}}">
+</div>
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" name="email" value="{{this.Email}}">
+</div>
+<div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" name="mobile" value="{{this.Mobile}}">
+</div>
+<div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" name="Location" value="{{this.Location}}">
+</div>
+
+<div class="form-group">
+ <button type="submit">Save change</button>
+ <a href="/">Back</a>
+</div>
+</form>
+{{/each}}
